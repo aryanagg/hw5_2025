@@ -1,0 +1,139 @@
+@keyframes logoAnimate { /* Define keyframe to adjust logo from 0 opacity to 1 and size 25px to 475px */
+    from{
+        width: 25px;
+        opacity: 0;
+    }
+    to{
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo{
+    animation-name: logoAnimate; /* Use the animation we created above */
+    animation-duration: 5s; /* Set the animation to take 5 seconds */
+}
+
+
+body{ /* Adjust the elements in the body tag */
+    font-family: "Poppins", serif; /* Use the Poppins font from google font and use serif as a fall back option */
+    background-image: url("../images/concrete_seamless.png"); /* Use the concrete_seamless image as the bakcground of the body */
+    background-color: #f1f1f1; /* If the background image doesn't load, the background will be this color */
+
+}
+
+header{ /* Adjust elements in the header tag */
+    display: flex; 
+    align-items: center; /* Center the header elements */
+    flex-direction: column; /* Align the elements of the header vertically */
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: column; /* Align the nav bar links vertically */
+}
+
+a:visited{
+    color: blue; /* Make the color of visited links the same as unvisited links */
+}
+
+.card > header{ /* Select headers that are only direct headers of a card class */
+    background-color: #288088; /* Assign the background color */
+    border: solid 2px #45ADAD; /* Give these eelements a solid 2px border with the correct color */
+    padding: 20px 0; /* Add 20px of padding to the top and bottom and 0px of padding to the sides */
+    border-top-left-radius: 50px; /* To round the top corners add a 50px radius to the top left and top right */
+    border-top-right-radius: 50px;
+}
+/* The changes above don't have the corners completely correct as the card class background still shows*/
+.card{  /* To fix this, we adjust the border radius of the card class to match the borders of the headers from above */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column; /* Make flex direction column so that the cards display as intended */
+    flex-basis: 450px; /* Make the flex-basis 450px to make the cards take up the desired size */
+}
+
+.pricing{
+    display: flex;
+    flex-wrap: wrap; /* Wrap items so that they appear in individual rows */
+    justify-content: center; /* Center content horizointally */
+    align-items: center; /* Center content vertically */
+}
+
+.gallery img{ /* Select images in the gallery class */
+    border: 10px solid #50C7C7; /* Give a 10px solid border with requested color */
+    margin: 10px; /* Give the images a 10px margin all around */
+    width: 300px; /* Make the images 300px wide */
+}
+
+.gallery{ /* Edit gallery class to match the desired look */
+    display: flex;
+    flex-wrap: wrap; /* Wrap images so that the image overflow goes to next line */
+    justify-content: center; /* Center the elements */
+}
+    
+@media screen and (min-width: 900px) { /* Media query for screen sizes above 900 px */
+    header, .nav_links{ /* Adjust header and nav links at the breakpoint */
+        justify-content: space-between; /* Space the logo all the way to the left and links all the way to the right */
+        flex-direction: row; /* Set flex direction to row so that the logos appear in one row */
+    }
+    .pricing, .card{
+        flex-basis: 275px; /* Adjust basis of pricing and card class to 275px as instructed */
+    }
+    body>header{ /* Adjust the first header located in the body and not in main */
+        display: flex;
+        width:100%; /* Make it take the full width of the webpage */
+        position: fixed; /* Fix position so that it always appears on the top */
+    }
+    /* The above CSS causes the header to overlap with the h1 */
+    main{
+        padding-top: 100px; /* To resolve add padding so that we can see the header and the full page content */
+    }
+}
+
+@media (prefers-reduced-motion:reduce) { /* Media query for users who prefer reduced motion */
+    #logo{
+        animation: none; /* Make it so the animation doesn't play if reduce motion is prefered */
+    }
+}
+
+@media print{ /* Media query for what the print preview looks like */
+    body{
+        font-family: Arial, Helvetica; /* Make the font of the body Arial with Helvetica as a backup font */
+        background: none; /* Remove the background image */
+    }
+    nav { /* Make the nav element span the entire page */
+        display: flex;
+        width: 100%;
+      }
+    
+      .nav_links { /* Edit nav links to match the requested output */
+        display: flex;
+        flex-direction: row; /* Use row direction so that everything is in one row */
+        justify-content: space-around; /* Use space around to match the look given in the image */
+        width: 100%; /* Take up teh full width */
+      }
+
+      .pricing{
+        display: flex;
+        align-items: flex-end; /* Align end so that all of the pricing class elements are lined up on the bottom */
+      }
+      .card {
+        border: solid 2px #45ADDD; /* Give the card class a border with size of 2px, the color, and solid */
+        flex-basis: 215px; /* Use the flex dimension to give the correct look */
+        display: flex;
+        flex-direction: column;
+      }
+      .gallery{
+        display: none; /* Hide the gallery elements when in print view */
+      }
+      .card ul li:nth-child(2)::after { /* Select the space after the 2nd list elememt of the unordered list in the card class */
+        content: "👍"; /* Add a thumbs up emoji to the spot selected */
+      }
+    
+
+
+}
