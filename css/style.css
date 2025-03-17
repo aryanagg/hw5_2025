@@ -26,6 +26,7 @@ header{ /* Adjust elements in the header tag */
     display: flex; 
     align-items: center; /* Center the header elements */
     flex-direction: column; /* Align the elements of the header vertically */
+    
 }
 
 .nav_links{
